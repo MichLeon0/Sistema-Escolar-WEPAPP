@@ -14,12 +14,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AlumnosService {
-
+  private API_URL_BASE = environment.apiUrl.endsWith('/') ? environment.apiUrl : environment.apiUrl + '/';
+  private urlAlumnos = this.API_URL_BASE + 'api/alumnos/';
   constructor(
         private http: HttpClient,
         private validatorService: ValidatorService,
         private errorService: ErrorsService,
-                private facadeService: FacadeService
+        private facadeService: FacadeService
   ) { }
 
   public esquemaAlumno(){
